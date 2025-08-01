@@ -2,9 +2,9 @@ import { Card, CardContent, CardHeader } from "@shared/ui";
 
 export default function Home() {
   return (
-    <div className=''>
+    <div className='mt-10'>
       <Card>
-        <CardHeader>Привет</CardHeader>
+        <CardHeader>d</CardHeader>
         <CardContent>Привет еще</CardContent>
       </Card>
     </div>
