@@ -20,7 +20,7 @@ const RootLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => (
-  <html lang='en' suppressHydrationWarning>
+  <html lang='ru' suppressHydrationWarning>
     <body className={cn("container", geistSans.variable)}>{children}</body>
   </html>
 );
