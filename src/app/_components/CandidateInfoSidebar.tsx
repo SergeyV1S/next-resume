@@ -1,13 +1,15 @@
-import { MailIcon, PhoneIcon } from "lucide-react";
-
-import type { ICandidateInfo, ISkills } from "@models/types";
 import { differenceInCalendarYears } from "date-fns";
+import { MailIcon, PhoneIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { createFetch } from "@shared/api";
+import { formatAge } from "@shared/helpers";
 import { cn } from "@shared/lib";
 import { Typography, typographyVariants } from "@shared/ui";
+
+import { socialMediaIconMap } from "../_constants";
+import type { ICandidateInfo, ISkills } from "../_models/types";
 
 export const CandidateInfoSidebar = async () => {
   const candidateInfo = await createFetch.fetchISR<ICandidateInfo>("/candidate-info");
@@ -20,7 +22,7 @@ export const CandidateInfoSidebar = async () => {
       <div className='space-y-6'>
         <div className='space-y-4'>
           <div className='flex items-center justify-center'>
-            <Image className='size-auto' src='/profile.png' alt='photo' width={166} height={222} />
+            <Image src='/profile.png' alt='photo' width={120} height={176} />
           </div>
           <Typography variant='title_h3' tag='h1'>
             {candidateInfo.fullName.toUpperCase()}
@@ -28,7 +30,7 @@ export const CandidateInfoSidebar = async () => {
         </div>
         <div className='space-y-2'>
           <Typography variant='paragraph_16_medium'>
-            Возраст: <span className={typographyVariants()}>{age}</span>
+            Возраст: <span className={typographyVariants()}>{formatAge(age)}</span>
           </Typography>
           <Typography variant='paragraph_16_medium'>
             Должность: <span className={typographyVariants()}>{candidateInfo.post}</span>
@@ -54,7 +56,7 @@ export const CandidateInfoSidebar = async () => {
             </div>
             {candidateInfo.contacts.socialMedia.map((item) => (
               <div className='flex items-center gap-2' key={item.uid}>
-                <PhoneIcon size={16} />
+                {socialMediaIconMap[item.mediaName]}
                 <Link href={item.link} target='_blank' rel='noopener noreferrer'>
                   {item.title}
                 </Link>
@@ -82,7 +84,7 @@ const SidebarInfoWithTitle = ({
   children,
   ...props
 }: ISidebarInfoWithTitleProps) => (
-  <div className={cn("space-y-4", className)} {...props}>
+  <div className={cn("space-y-4 *:not-first:ml-2", className)} {...props}>
     <div className='rounded border p-4'>
       <Typography variant='title_h3' tag='h2'>
         {title}
@@ -102,7 +104,7 @@ const SidebarSkills = ({ skills, title, className, ...props }: ISidebarSkillsPro
     <Typography>{title}</Typography>
     <ul className={cn("space-y-2", className)} {...props}>
       {skills.map((skill) => (
-        <li className='ml-1 flex items-center gap-2' key={skill}>
+        <li className='ml-2 flex items-center gap-2' key={skill}>
           <div className='bg-accent-foreground size-1 rounded-full' />
           {skill}
         </li>
