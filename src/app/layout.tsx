@@ -21,7 +21,7 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => (
   <html lang='ru' suppressHydrationWarning>
-    <body className={cn("container", geistSans.variable)}>{children}</body>
+    <body className={cn("bg-popover container", geistSans.variable)}>{children}</body>
   </html>
 );
 export default RootLayout;

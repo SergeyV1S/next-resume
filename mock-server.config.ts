@@ -5,11 +5,7 @@ import * as REQUESTS from "./src/mock";
 const mockServerConfig: FlatMockServerConfig = [
   {
     baseUrl: "/api",
-    port: 8000,
-    staticPath: {
-      path: "/mock/static/images",
-      prefix: "/static"
-    }
+    port: 8000
   },
   {
     interceptors: {

@@ -1,9 +1,9 @@
 export const CANDIDATE_INFO = {
   fullName: "Иванов Иван Иванович",
   post: "Frontend Developer",
-  birthday: 1739092500000,
+  birthday: 1095093017000,
   city: "Москва",
-  contancts: {
+  contacts: {
     phone: "+7777777777",
     mail: "example@mail.ru",
     socialMedia: [
