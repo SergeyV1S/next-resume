@@ -10,7 +10,7 @@ import {
 const Home = () => (
   <div className='border-accent-foreground my-10 grid grid-cols-[30%_1fr] gap-10 rounded-xl border'>
     <CandidateInfoSidebar />
-    <main className='flex max-h-[calc(100vh-2*40px-2*24px)] flex-col gap-6 overflow-y-auto p-6 pl-0'>
+    <main className='flex flex-col gap-6 p-6 pl-0'>
       <WorkExperienceSection />
 
       <EducationSection />

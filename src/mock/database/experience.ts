@@ -8,7 +8,18 @@ export const EXPERIENCE = [
       { uid: "string2", title: "Участие в Code Review" },
       { uid: "string3", title: "Написание кода" }
     ],
-    startDate: 1739092500000,
-    endDate: 1739092500200
+    startDate: 1554435595000,
+    endDate: 1620185995000
+  },
+  {
+    uid: "string2",
+    company: "ЦФТ",
+    post: "Вайб кодер",
+    responsibilities: [
+      { uid: "string1", title: "Разработка лэндинга" },
+      { uid: "string2", title: "Участие в Code Review" },
+      { uid: "string3", title: "Написание кода" }
+    ],
+    startDate: 1620358795000
   }
 ];

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { createFetch } from "@shared/api";
-import { formatAge } from "@shared/helpers";
+import { pluralize } from "@shared/helpers";
 import { cn } from "@shared/lib";
 import { Typography, typographyVariants } from "@shared/ui";
 
@@ -30,7 +30,7 @@ export const CandidateInfoSidebar = async () => {
         </div>
         <div className='space-y-2'>
           <Typography variant='paragraph_16_medium'>
-            Возраст: <span className={typographyVariants()}>{formatAge(age)}</span>
+            Возраст: <span className={typographyVariants()}>{pluralize(age, "year")}</span>
           </Typography>
           <Typography variant='paragraph_16_medium'>
             Должность: <span className={typographyVariants()}>{candidateInfo.post}</span>
@@ -100,8 +100,8 @@ interface ISidebarSkillsProps extends React.ComponentProps<"ul"> {
 }
 
 const SidebarSkills = ({ skills, title, className, ...props }: ISidebarSkillsProps) => (
-  <>
-    <Typography>{title}</Typography>
+  <div className='space-y-2'>
+    <Typography variant='paragraph_16_medium'>{title}</Typography>
     <ul className={cn("space-y-2", className)} {...props}>
       {skills.map((skill) => (
         <li className='ml-2 flex items-center gap-2' key={skill}>
@@ -110,5 +110,5 @@ const SidebarSkills = ({ skills, title, className, ...props }: ISidebarSkillsPro
         </li>
       ))}
     </ul>
-  </>
+  </div>
 );

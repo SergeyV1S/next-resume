@@ -1,1 +1,2 @@
-export * from "./formatAge";
+export * from "./pluralize";
+export * from "./formatDateDifference";
